@@ -3,7 +3,7 @@
     <Navigation />
     <Header :title="title" />
     <div class="tracking-content">
-      <ClipLoader class="loader" v-if="!loadedAll" :color="loaderColor" :size="loaderSize" />
+      <RiseLoader class="loader" v-if="!loadedAll && !error" :color="loaderColor" :size="loaderSize" />
       <LineChart
         v-if="loadedAll"
         :labels="labels"
@@ -47,7 +47,7 @@ import {
   getAnalyticsDataSessions,
 } from "../modules/google_api";
 import { getClientByAuth_id } from "../modules/clients";
-import { ClipLoader } from "@saeris/vue-spinners";
+import { RiseLoader } from "@saeris/vue-spinners";
 
 export default {
   name: "Tracking",
@@ -58,14 +58,14 @@ export default {
     LineChart,
     LineChart2,
     LineChart3,
-    ClipLoader,
+    RiseLoader,
   },
   data() {
     return {
       title: "Tracking Infos",
       loadedAll: false,
       loaderColor: "#26ce83",
-      loaderSize: 60,
+      loaderSize: 30,
       error: false,
       labels: [],
       labelsCtry: [],
@@ -125,11 +125,11 @@ export default {
           this.labelsSessions[i] = this.formatDate(elem);
         });
       });
+      this.loadedAll = true;
     } catch (e) {
       console.error(e);
       this.error = true;
     }
-    this.loadedAll = true;
   },
   methods: {
     formatDate(dateString) {

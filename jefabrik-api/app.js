@@ -3,8 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const indexRouter = require('./api/routes/index');
-const usersRouter = require('./api/routes/users');
 const googleApiRouter = require('./api/routes/googleapi');
 const clientRouter = require('./api/routes/clients');
 const configRouter = require('./api/routes/configurateurs');
@@ -53,8 +51,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/googleapi', googleApiRouter);
 app.use('/clients', clientRouter);
 app.use('/configurateurs', configRouter);

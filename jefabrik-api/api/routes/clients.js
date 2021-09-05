@@ -1,6 +1,5 @@
 var express = require("express");
-const ClientController = require("../controller/client");
-const Client = require("../model/client");
+const ClientController = require("../controllers/client");
 var router = express.Router();
 
 /* GET clients listing. */

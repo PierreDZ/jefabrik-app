@@ -1,5 +1,5 @@
 var express = require('express');
-const { runReport, runReportCountries, runReportSessions, runReportConversions } = require('../controller/googleapi');
+const { runReport, runReportCountries, runReportSessions, runReportConversions } = require('../controllers/googleapi');
 var router = express.Router();
 
 /* GET users listing. */

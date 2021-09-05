@@ -1,4 +1,4 @@
-const Config = require('../model/configurateur');
+const Config = require('../models/configurateur');
 
 module.exports.getAllConfigs = async () => {
     try {
@@ -77,6 +77,25 @@ module.exports.getAllConfigs = async () => {
         code: 500,
         data: {
           error: "Problem retrieving data",
+        },
+      };
+    }
+  };
+
+  module.exports.deleteConfigById = async (id) => {
+    try {
+      const configFound = await Config.findByIdAndDelete(id);
+      if (!configFound) return { code: 404, data: { error: "No configurator found" } };
+  
+      return {
+        code: 200,
+        data: configFound,
+      };
+    } catch (error) {
+      return {
+        code: 500,
+        data: {
+          error: "Problem retrieving Configurateur",
         },
       };
     }

@@ -1,5 +1,5 @@
 var express = require('express');
-const ConfigController = require('../controller/configurateur');
+const ConfigController = require('../controllers/configurateur');
 var router = express.Router();
 
 /* GET configurator listing. */
@@ -42,6 +42,17 @@ router.patch('/:id', async (req, res) => {
     } catch (error) {
         res.status(500).send(error)
     }
-})
+});
+
+// Delete configurateur
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id.toString();
+        const response = await ConfigController.deleteConfigById(id);
+        res.status(response.code).send(response.data);
+    } catch (error) {
+        res.status(500).send(error)
+    }
+});
 
 module.exports = router;

@@ -3,7 +3,7 @@
       <router-link id="dashboard" to="/Dashboard">
         <IconifyIcon id="icon" :icon="icons.bxHomeAlt" />
       </router-link>
-      <router-link id="dashboard" to="/Tracking-infos">
+      <router-link id="dashboard" to="/Tracking">
         <IconifyIcon id="icon" :icon="icons.monitoringIcon" />
       </router-link>
       <router-link id="dashboard" to="/Integration">

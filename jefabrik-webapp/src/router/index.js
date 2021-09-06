@@ -23,7 +23,7 @@ const routes = [
     beforeEnter: authGuard
   },
   {
-    path: '/Tracking-infos',
+    path: '/Tracking',
     name: 'Tracking',
     component: Tracking,
     beforeEnter: authGuard

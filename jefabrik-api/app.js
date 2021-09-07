@@ -22,7 +22,7 @@ const app = express();
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  const allowedOrigins = ['http://localhost:8080', 'http://localhost:8668', 'https://www.jefabrik.com/'];
+  const allowedOrigins = ['http://localhost:8080', 'http://localhost:8668', 'https://www.jefabrik.com'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
        res.setHeader('Access-Control-Allow-Origin', origin);
